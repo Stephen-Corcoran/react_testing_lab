@@ -85,7 +85,7 @@ describe('Calculator', () => {
     expect(runningTotal.text()).toEqual("58008");
   })
 
-  it("should be able to divide numbers", () => {
+  it("should be able to chain multiple operations together", () => {
     const button2 = container.find("#number2");
     const button1 = container.find("#number1");
     const divide = container.find("#operator-divide");
@@ -101,6 +101,28 @@ describe('Calculator', () => {
     button2.simulate("click");
     equals.simulate("click");
     expect(runningTotal.text()).toEqual("6");
+  })
+
+  it("clear the running total without affecting the calculation", () => {
+    const button2 = container.find("#number2");
+    const multiply = container.find("#operator-multiply");
+    const button5 = container.find("#number5");
+    const equals = container.find("#operator-equals");
+    const add = container.find("#operator_add");
+    const clear = container.find("#clear.clear");
+    const button3 = container.find("#number3");
+    const runningTotal = container.find("#running-total");
+    button2.simulate("click");
+    multiply.simulate("click");
+    button5.simulate("click");
+    equals.simulate("click");
+    add.simulate("click");
+    button3.simulate("click");
+    clear.simulate("click");
+    add.simulate("click");
+    button2.simulate("click");
+    equals.simulate("click");
+    expect(runningTotal.text()).toEqual("12");
   })
 
 })
