@@ -18,5 +18,19 @@ describe('Calculator', () => {
     expect(runningTotal.text()).toEqual('4');
   })
 
+  it("should be able to add numbers together", () => {
+    const button4 = container.find("#number4");
+    const add = container.find("#operator_add");
+    const button1 = container.find("#number1");
+    const equals = container.find("#operator-equals");
+    const runningTotal = container.find("#running-total")
+    button4.simulate("click");
+    add.simulate("click");
+    button1.simulate("click");
+    equals.simulate("click");
+    expect(runningTotal.text()).toEqual("5");
+  })
+
+  
 })
 
