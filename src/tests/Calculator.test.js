@@ -57,5 +57,20 @@ describe('Calculator', () => {
     expect(runningTotal.text()).toEqual("15");
   })
 
+  it("should be able to divide numbers", () => {
+    const button2 = container.find("#number2");
+    const button1 = container.find("#number1");
+    const divide = container.find("#operator-divide");
+    const button7 = container.find("#number7");
+    const equals = container.find("#operator-equals");
+    const runningTotal = container.find("#running-total")
+    button2.simulate("click");
+    button1.simulate("click");
+    divide.simulate("click");
+    button7.simulate("click");
+    equals.simulate("click");
+    expect(runningTotal.text()).toEqual("3");
+  })
+
 })
 
