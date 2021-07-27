@@ -7,4 +7,11 @@ describe("Calculator", () => {
     cy.get('#number2').click();
     cy.get('.display').should('contain', '2')
   })
+
+  it("should update the display of the running total", () => {
+    cy.get("#number3").click();
+    cy.get("#number2").click();
+    cy.get(".display").should('contain', '32')
+  })
+
 })
