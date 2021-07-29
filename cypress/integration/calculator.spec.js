@@ -69,4 +69,12 @@ it("should get he output as expected for a range of numbers (very large numbers)
   cy.get(".display").should('contain', '10445824')
 })
 
+it("should get Can't divide by 0 if you divide by zero)", () => {
+  cy.get("#number2").click();
+  cy.get("#operator-divide").click();
+  cy.get("#number0").click();
+  cy.get("#operator-equals").click();
+  cy.get(".display").should('contain', "Can't divide by 0")
+})
+
 })
